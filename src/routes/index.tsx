@@ -228,7 +228,7 @@ function Index() {
             {gallery.map((image) => (
               <figure
                 key={image.alt}
-                className="overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)]"
+                className="reveal relative overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)]"
               >
                 <img
                   src={image.src}
@@ -236,7 +236,11 @@ function Index() {
                   width={1024}
                   height={1280}
                   loading="lazy"
-                  className="aspect-[4/5] w-full object-cover transition duration-500 hover:scale-[1.03]"
+                  className="cinematic-pan aspect-[4/5] w-full object-cover"
+                />
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 film-grade"
                 />
               </figure>
             ))}
