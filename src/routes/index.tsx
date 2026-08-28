@@ -15,7 +15,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { EnquiryDialog } from "@/components/EnquiryDialog";
 import { siteConfig, whatsappLink } from "@/config/site";
-import logo from "@/assets/wiv-logo.png.asset.json";
+import logo from "@/assets/wiv-logo.png";
 import gallery1 from "@/assets/wiv-gallery-1.jpg";
 import gallery2 from "@/assets/wiv-gallery-2.jpg";
 import gallery3 from "@/assets/wiv-gallery-3.jpg";
@@ -90,7 +90,7 @@ function Index() {
         />
         <div className="relative mx-auto max-w-3xl text-center fade-up">
           <img
-            src={logo.url}
+            src={logo}
             alt="Wisdom Innovation Village logo"
             width={700}
             height={700}
