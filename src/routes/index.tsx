@@ -15,7 +15,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { EnquiryDialog } from "@/components/EnquiryDialog";
 import { siteConfig, whatsappLink } from "@/config/site";
-import logo from "@/assets/wiv-logo.png.asset.json";
+import logo from "@/assets/wiv-logo.png";
 import gallery1 from "@/assets/wiv-gallery-1.jpg";
 import gallery2 from "@/assets/wiv-gallery-2.jpg";
 import gallery3 from "@/assets/wiv-gallery-3.jpg";
@@ -90,7 +90,7 @@ function Index() {
         />
         <div className="relative mx-auto max-w-3xl text-center fade-up">
           <img
-            src={logo.url}
+            src={logo}
             alt="Wisdom Innovation Village logo"
             width={700}
             height={700}
@@ -228,7 +228,7 @@ function Index() {
             {gallery.map((image) => (
               <figure
                 key={image.alt}
-                className="overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)]"
+                className="reveal relative overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)]"
               >
                 <img
                   src={image.src}
@@ -236,7 +236,11 @@ function Index() {
                   width={1024}
                   height={1280}
                   loading="lazy"
-                  className="aspect-[4/5] w-full object-cover transition duration-500 hover:scale-[1.03]"
+                  className="cinematic-pan aspect-[4/5] w-full object-cover"
+                />
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 film-grade"
                 />
               </figure>
             ))}
