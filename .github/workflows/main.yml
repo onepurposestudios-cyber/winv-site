@@ -35,15 +35,23 @@ jobs:
 
       - name: Check build files
         run: |
-          echo "Checking project files..."
+          echo "=== PROJECT ROOT ==="
           ls -la
-          echo "Checking folders..."
-          find . -maxdepth 2 -type d
+
+          echo "=== .OUTPUT CONTENTS ==="
+          find .output -maxdepth 3 -type f | sort || true
+
+          echo "=== PUBLIC BUILD FOLDER ==="
+          ls -la .output/public || true
+
+          echo "=== CHECKING FOR INDEX.HTML ==="
+          find .output/public -name "index.html" -type f || true
 
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:
-         path: ./.output/public
+          path: ./.output/public
+
   deploy:
     environment:
       name: github-pages
