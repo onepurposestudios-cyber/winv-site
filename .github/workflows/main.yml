@@ -33,45 +33,16 @@ jobs:
       - name: Build website
         run: npm run build
 
-      - name: Inspect build output
+      - name: Check generated files
         run: |
-          echo "Searching for generated index.html files..."
-          find . -path ./node_modules -prune -o -name "index.html" -print
-
-          echo "Checking build directories..."
-          if [ -d "dist" ]; then
-            echo "Contents of dist:"
-            ls -la dist
-          fi
-
-          if [ -d ".output/public" ]; then
-            echo "Contents of .output/public:"
-            ls -la .output/public
-          fi
-
-      - name: Prepare website for GitHub Pages
-        run: |
-          mkdir -p _site
-
-          if [ -f "dist/index.html" ]; then
-            echo "Using dist as website directory"
-            cp -r dist/. _site/
-          elif [ -f ".output/public/index.html" ]; then
-            echo "Using .output/public as website directory"
-            cp -r .output/public/. _site/
-          else
-            echo "ERROR: No static index.html was generated."
-            echo "This project may require additional configuration for static hosting."
-            exit 1
-          fi
-
-          echo "Final website files:"
-          ls -la _site
+          echo "Checking build output..."
+          find .output -maxdepth 3 -type f 2>/dev/null || true
+          test -f .output/public/index.html
 
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./_site
+          path: ./.output/public
 
   deploy:
     environment:
