@@ -35,14 +35,14 @@ jobs:
 
       - name: Check generated files
         run: |
-          echo "Checking build output..."
-          find .output -maxdepth 3 -type f 2>/dev/null || true
-          test -f .output/public/index.html
+          echo "Checking generated website files..."
+          find dist/client -maxdepth 2 -type f
+          test -f dist/client/index.html
 
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./.output/public
+          path: ./dist/client
 
   deploy:
     environment:
