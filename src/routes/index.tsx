@@ -167,33 +167,20 @@ function Index() {
           </div>
           <div className="mt-10">
             <Button
-              asChild={Boolean(siteConfig.brochureUrl)}
+              asChild
               variant="outline"
               size="lg"
-              disabled={!siteConfig.brochureUrl}
               className="h-13 rounded-full border-primary/25 px-7 text-primary"
             >
-              {siteConfig.brochureUrl ? (
-                <a
-                  href={siteConfig.brochureUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FileText className="size-5" aria-hidden />
-                  View WIV Capability Brochure
-                </a>
-              ) : (
-                <>
-                  <FileText className="size-5" aria-hidden />
-                  View WIV Capability Brochure
-                </>
-              )}
+              <a
+                href={siteConfig.brochureUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FileText className="size-5" aria-hidden />
+                View WIV Capability Brochure
+              </a>
             </Button>
-            {!siteConfig.brochureUrl ? (
-              <p className="mt-2 text-xs text-muted-foreground">
-                Brochure coming soon.
-              </p>
-            ) : null}
           </div>
         </div>
       </section>

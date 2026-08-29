@@ -1,3 +1,5 @@
+import brochureAsset from "@/assets/WIV-Official-Brochure.pdf.asset.json";
+
 // Central place to update WIV contact details and links.
 export const siteConfig = {
   name: "Wisdom Innovation Village",
@@ -15,8 +17,7 @@ export const siteConfig = {
     url: "https://www.facebook.com/profile.php?id=61585228580742",
   },
   location: "Monrovia, Liberia",
-  // Update when the final brochure PDF/URL is available.
-  brochureUrl: "",
+  brochureUrl: brochureAsset.url,
 };
 
 export const whatsappLink = (message: string = siteConfig.whatsappMessage) =>

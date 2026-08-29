@@ -10,8 +10,8 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 // Detect the Lovable development environment.
 // GitHub Actions will use the static configuration below.
 const isLovableSandbox =
-  process.env.LOVABLE_SANDBOX === "1" ||
-  !!process.env.DEV_SERVER__PROJECT_PATH;
+  process.env["LOVABLE_SANDBOX"] === "1" ||
+  !!process.env["DEV_SERVER__PROJECT_PATH"];
 
 export default defineConfig({
   // GitHub Pages hosts the website inside the repository path.
@@ -21,7 +21,7 @@ export default defineConfig({
 
   // Keep the normal server configuration inside Lovable,
   // but create a fully static site when building outside Lovable.
-  nitro: isLovableSandbox ? undefined : false,
+  nitro: isLovableSandbox ? {} : false,
 
   tanstackStart: isLovableSandbox
     ? {
